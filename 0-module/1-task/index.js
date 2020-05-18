@@ -4,6 +4,11 @@
  * @param {number} n index
  * @returns {number}
  */
+/
+
 function sum(m, n) {
+
+sum = m + n;
+return sum;
 
 }
