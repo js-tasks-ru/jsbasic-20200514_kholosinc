@@ -1,6 +1,6 @@
-/**
- * @param   {{ name: string, age: number }[]} users
- * @returns {string[]}  объект
- */
 function namify(users) {
+  let newArr = users.map(element => {
+    return element.name
+  })
+  return newArr
 }
