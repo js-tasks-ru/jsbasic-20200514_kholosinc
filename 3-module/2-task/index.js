@@ -1,17 +1,15 @@
+/**
+ * Найти min/max в произвольной строке
+ * @param   {string} str -  входные данные
+ * @returns {{min:number, max:number}}  объект
+ */
 function getMinMax(str) {
-  function compare(a, b) {
-    if (a > b) return 1; // если первое значение больше второго
-    if (a == b) return 0; // если равны
-    if (a < b) return -1; // если первое значение меньше второго
-  }
+  let segments = str.match(/(-|\+)?[\d]+(\.[\d]+)?/ig) || [];
 
-  let newArr = str.split([","]).join(" ").split([" "]).filter(function (element) {
-    return +element
-  }).join(",").split([","]).sort(compare)
+  segments = segments.map(seg => parseFloat(seg));
 
-  let result = {
-    min: Math.min.apply(null, newArr),
-    max: Math.max.apply(null, newArr)
-  }
-  return result
+  return {
+    min: Math.min(...segments),
+    max: Math.max(...segments),
+  };
 }
